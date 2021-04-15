@@ -5,20 +5,34 @@ class SignUpPage extends React.Component {
     render() {
     
         return (
-          <div className="container-fluid text-center col justify-content-center">
+          <div className="col-10 col-md-8 col-lg-7">
                 <label for="fname">First name: </label>
-                <input type="text" id="fname" name="fname" required/><br></br>
+                <input className="form-control mr-3 rounded"
+                        type="text" id="fname" name="fname" required/><br></br>
                 <label for="lname">Last name: </label>
-                <input type="text" id="lname" name="lname" required/><br></br>
+                <input className="form-control mr-3 rounded"
+                        type="text" id="lname" name="lname" required/><br></br>
                 <label for="email">Email Address: </label>
-                <input type="email" id="email" name="email" required/><br></br>
+                <input className="form-control mr-3 rounded"
+                        type="email" id="email" name="email" required/><br></br>
                 <label for="password">Password: </label>
-                <input type="password" id="password" name="password" required/><br></br>
+                <input className="form-control mr-3 rounded"
+                        type="password" id="password" name="password" required/><br></br>
                 <label for="Student">Are you currently a CUNY Student? </label>
                 <select name="student" id="student" required> <br></br>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                 </select><br></br>
+                {/* <div className="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </div>
+                </div> */}
+                    {/* <option value="Yes">Yes</option>
+                    <option value="No">No</option> */}
                 <label for="Alumni">Are you a CUNY Alumni? </label>
                 <select name="alumni" id="alumni" required>
                     <option value="Yes">Yes</option>
