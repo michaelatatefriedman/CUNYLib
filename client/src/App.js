@@ -10,6 +10,7 @@ import PostsListPage from './pages/PostsListPage';
 import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
+import ProfilePage from './pages/ProfilePage';
 
 import './App.css';
 
@@ -29,6 +30,11 @@ function Navigation(props) {
             About Us
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/profile">
+            Profile
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
@@ -43,6 +49,7 @@ class App extends React.Component {
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
+                <Route path="/profile" component={ProfilePage} />
                 <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
