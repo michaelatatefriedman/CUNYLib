@@ -36,12 +36,13 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'post'
+    modelName: 'user'
   });
 
   User.associate = (models) => {
     //many user-books to a user
-    
+    //since its a foreign key, only needs to be added on one end
+    //User.hasMany(models.User_book)
   };
 
   return User;

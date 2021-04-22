@@ -1,4 +1,5 @@
 //NEEDS TO BE FINISHED
+//Mariam
 
 'use strict';
 const { Model } = require('sequelize');
@@ -17,11 +18,12 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'post'
+    modelName: 'book'
   });
 
   Book.associate = (models) => {
     //many books to many user-books
+    //Book.hasMany(models.User_book)
   };
 
   return Book;
