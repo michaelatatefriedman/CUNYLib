@@ -29,46 +29,19 @@ module.exports = (sequelize, DataTypes) => {
         len: [10, 13],
       }
     },
-    edition: {
+ /*   edition: {
       type: DataTypes.INT,
       validate: {
         isInt: true, 
       }
-    },
+    },*/
     // picture: {
     //   type: DataTypes.BLOB,
     //   validate: {
         
     //   }
     // },
-    status: {
-      type: DataTypes.BOOLEAN,
-      validate: {
-        len: [3, 40],
-        notEmpty: true,
-      }
-    },
-    dateUploaded: {
-      type: DataTypes.STRING,
-      validate: {
-        isDate: true,
-        notEmpty: true,
-      }
-    },
-    dateBorrowed: {
-      type: DataTypes.DATE,
-      validate: {
-        isDate: true,
-        notEmpty: true,
-      }
-    },
-    dateReturned: {
-      type: DataTypes.DATE,
-      validate: {
-        isDate: true,
-        notEmpty: true,
-      }
-    },
+ 
   }, {
     sequelize,
     modelName: 'book'
