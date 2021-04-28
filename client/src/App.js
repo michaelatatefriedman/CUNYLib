@@ -13,7 +13,8 @@ import AboutUsPage from './pages/AboutUsPage';
 import LoginPage from './pages/LoginPage';
 import PrivateRoute from './components/PrivateRoute';
 import AuthButton from './components/AuthButton';
-
+import SignupButton from './components/SignupButton';
+import SignUpPage from './pages/SignUpPage';
 import './App.css';
 
 
@@ -33,7 +34,9 @@ function Navigation(props) {
           </NavLink>
         </li>
       </ul>
-      <AuthButton />      
+      <SignupButton />
+      <AuthButton /> 
+
     </nav>
   );
 }
@@ -47,7 +50,8 @@ class App extends React.Component {
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
-              <Route path="/login" component={LoginPage} />
+                <Route path="/sign-up" component={SignUpPage} />
+                <Route path="/login" component={LoginPage} />
                 <PrivateRoute path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />

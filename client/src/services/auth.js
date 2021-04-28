@@ -27,6 +27,26 @@ const auth = {
           return body;
         });
     },
+    signup(firstName, lastName, email, password, school){
+      return fetch('/api/auth/signup', { 
+        method: 'POST',
+        body: JSON.stringify({ firstName, lastName, email, password, school }),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        .then((response) => {
+          if(!response.ok) {
+            throw new Error('Signup Failed');
+          }
+  
+          return response.json();
+        })
+        .then((body) => {
+          this.isAuthenticated = true;
+          return body;
+        });      
+    },
     signout(cb) {
       return fetch('/api/auth/logout', { 
         method: 'POST',
