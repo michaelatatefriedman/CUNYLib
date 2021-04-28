@@ -51,6 +51,7 @@ module.exports = (sequelize, DataTypes) => {
           }
         },
       },
+
     },
   }, {
     sequelize,
@@ -58,7 +59,9 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = (models) => {
-    // associations can be defined here
+    //many user-books to a user
+    //since its a foreign key, only needs to be added on one end
+    //User.hasMany(models.User_book)
   };
 
   User.beforeSave((user, options) => {
@@ -66,6 +69,7 @@ module.exports = (sequelize, DataTypes) => {
       user.passwordHash = bcrypt.hashSync(user.password, 10);
     }
   });
+
 
   return User;
 };
