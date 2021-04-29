@@ -12,6 +12,8 @@ import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
 import { Button } from "./components/Button";
+import { SearchBar } from "./components/SearchBar";
+
 
 import './App.css';
 
@@ -35,6 +37,10 @@ function Navigation(props) {
           <NavLink className="nav-link" exact to="/sign-up">Sign Up</NavLink>
         </li>        
       </ul>
+      {/* <SearchBar>
+      input={input} 
+       onChange={updateInput}
+      </SearchBar> */}
     </nav>
   );
 }
@@ -45,6 +51,14 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
+          <SearchBar />
+          <Button onClick={() => {
+          console.log("You Clicked on Me!");
+        }}
+        type="button"
+        buttonStyle="btn--primary--solid"
+        buttonSize="btn--medium">Test Button
+        </Button>
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
