@@ -11,7 +11,7 @@ import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
-import {Home} from './components/Home';
+import { Button } from "./components/Button";
 
 import './App.css';
 
@@ -33,8 +33,7 @@ function Navigation(props) {
         </li>
         <li classname="nav-item">
           <NavLink className="nav-link" exact to="/sign-up">Sign Up</NavLink>
-        </li>
-        
+        </li>        
       </ul>
     </nav>
   );
