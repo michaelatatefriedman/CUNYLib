@@ -24,6 +24,7 @@ const auth = {
         })
         .then((body) => {
           this.isAuthenticated = true;
+          this.user = body;
           return body;
         });
     },
