@@ -14,10 +14,13 @@ import SignUpPage from './pages/SignUpPage';
 import { Button } from "./components/Button";
 import { SearchBar } from "./components/SearchBar";
 import { Profile } from "./components/Profile";
+import { Book } from "./components/Book";
+
 
 
 
 import './App.css';
+
 
 
 function Navigation(props) {
@@ -55,14 +58,18 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
-          <Profile name={'Michaela Friedman'} email={"123@123.com"} school={"QC"}/>
+          <Profile name="Michaela Friedman" email="123@123.com" school="QC"/>
+          <br></br>
+          <br></br>
+          <Book bookname="Michaela" email="123@123.com" school="QC" author="ME" isbn="12345678910"/>
+
           <SearchBar />
           <Button onClick={() => {
           console.log("You Clicked on Me!");
         }}
         type="button"
         buttonStyle="btn--primary--solid"
-        buttonSize="btn--medium">Test Button
+        buttonSize="btn--medium">Search
         </Button>
           <div className="container-fluid text-center">
             <div className="row justify-content-center">

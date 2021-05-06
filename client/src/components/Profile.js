@@ -1,11 +1,11 @@
 import React ,{ useState } from 'react';
 import './profile.css';
 
-export function Profile() {
+export function Profile(props) {
 
-    const[name,setName] = useState('Your Name');
-    const[email,setEmail] = useState('Your Email');
-    const[school,setSchool]= useState('Your School');
+    // const[name,setName] = useState('Your Name');
+    // const[email,setEmail] = useState('Your Email');
+    // const[school,setSchool]= useState('Your School');
 
 
     return (
@@ -17,9 +17,9 @@ export function Profile() {
                 
             </div> 
             <div className="lower-container">
-                <h1> { name } </h1>
-                <h4> { email } </h4>
-                <p> { school } </p>
+                <h1> { props.name } </h1>
+                <h4> { props.email } </h4>
+                <p> { props.school } </p>
                 <button>Visit Profile</button>
             </div>
         </div>
