@@ -9,14 +9,14 @@ export function Book(props) {
 
 
     return (
-        <div className="Card">
-            <div className = "upper-container">
-                <div className="image-container">
+        <div className="book-Card">
+            <div className = "book-upper-container">
+                <div className="book-image-container">
                     <img src="../book.png" alt= " " height ="100px" width="100px" />
                 </div>
                 
             </div> 
-            <div className="lower-container">
+            <div className="book-lower-container">
                 <h4>Book Name: { props.bookname } </h4>
                 <p>ISBN: { props.isbn } </p>
                 <p>Author: { props.author } </p>

@@ -62,7 +62,8 @@ class App extends React.Component {
           <br></br>
           <br></br>
           <Book bookname="Michaela" email="123@123.com" school="QC" author="ME" isbn="12345678910"/>
-
+          <br></br>
+          <br></br>
           <SearchBar />
           <Button onClick={() => {
           console.log("You Clicked on Me!");
