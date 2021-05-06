@@ -48,6 +48,9 @@ function Navigation(props) {
           <NavLink className="nav-link" exact to="/sign-up">Sign Up</NavLink>
         </li>        
       </ul>
+      <SignupButton />
+      <AuthButton /> 
+
     </nav>
   );
 }
