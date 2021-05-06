@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { 
   BrowserRouter as Router, 
   Switch, 
@@ -13,12 +13,20 @@ import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
 import { Button } from "./components/Button";
 import { SearchBar } from "./components/SearchBar";
+import { Profile } from "./components/Profile";
+
 
 
 import './App.css';
 
 
 function Navigation(props) {
+  // const{name,setName} = useState("Your Name");
+  //   const{email,setEmail} = useState("Your Email");
+  //   const{school,setSchool} = useState("Your School");
+    // const[name,setName] = useState('Your Name');
+    // const[email,setEmail] = useState('Your Email');
+    // const[school,setSchool]= useState('Your School');
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
       <Link className="navbar-brand" to="/">CUNYLib</Link>
@@ -37,10 +45,6 @@ function Navigation(props) {
           <NavLink className="nav-link" exact to="/sign-up">Sign Up</NavLink>
         </li>        
       </ul>
-      {/* <SearchBar>
-      input={input} 
-       onChange={updateInput}
-      </SearchBar> */}
     </nav>
   );
 }
@@ -51,6 +55,7 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
+          <Profile name={'Michaela Friedman'} email={"123@123.com"} school={"QC"}/>
           <SearchBar />
           <Button onClick={() => {
           console.log("You Clicked on Me!");
