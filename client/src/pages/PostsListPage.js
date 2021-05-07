@@ -1,6 +1,8 @@
 import React from 'react';
 import Post from '../components/Post';
 import Loading from '../components/Loading';
+import AuthButton from '../components/AuthButton';
+import SignupButton from '../components/SignupButton';
 
 
 class PostsListPage extends React.Component {
@@ -31,7 +33,11 @@ class PostsListPage extends React.Component {
         <div className="row justify-content-center">
           { this.state.posts }
         </div>
-      </div>
+      <div>Welcome to CUNYLib</div>
+        <AuthButton>Log In</AuthButton>
+        <SignupButton>Sign Up</SignupButton>
+    </div>
+    
     );
   }
 }
