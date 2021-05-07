@@ -11,6 +11,8 @@ import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
+import Upload from './pages/Upload';
+
 import { Button } from "./components/Button";
 import { SearchBar } from "./components/SearchBar";
 import { Profile } from "./components/Profile";
@@ -40,6 +42,11 @@ function Navigation(props) {
         <li className="nav-item">
           <NavLink className="nav-link" exact to="">
             Home
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/upload">
+            Upload
           </NavLink>
         </li>
         <li className="nav-item">
@@ -82,6 +89,7 @@ class App extends React.Component {
             <div className="row justify-content-center">
               <Switch>
                 <Route path="/sign-up" component={SignUpPage} />
+                <Route path="/upload" component={Upload} />
                 <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
