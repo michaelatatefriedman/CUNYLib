@@ -10,7 +10,6 @@ import PostsListPage from './pages/PostsListPage';
 import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
-<<<<<<< HEAD
 import SignUpPage from './pages/SignUpPage';
 import Upload from './pages/Upload';
 
@@ -24,9 +23,6 @@ import { AuthButton } from "./components/AuthButton";
 
 
 
-=======
-import ProfilePage from './pages/ProfilePage';
->>>>>>> Mariam
 
 import './App.css';
 
@@ -58,17 +54,9 @@ function Navigation(props) {
             About Us
           </NavLink>
         </li>
-<<<<<<< HEAD
         <li classname="nav-item">
           <NavLink className="nav-link" exact to="/sign-up">Sign Up</NavLink>
         </li>        
-=======
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/profile">
-            Profile
-          </NavLink>
-        </li>
->>>>>>> Mariam
       </ul>
       <SignupButton />
       <AuthButton /> 
@@ -100,12 +88,8 @@ class App extends React.Component {
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
-<<<<<<< HEAD
                 <Route path="/sign-up" component={SignUpPage} />
                 <Route path="/upload" component={Upload} />
-=======
-                <Route path="/profile" component={ProfilePage} />
->>>>>>> Mariam
                 <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
