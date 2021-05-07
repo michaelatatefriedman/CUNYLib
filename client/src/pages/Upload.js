@@ -2,7 +2,7 @@ import React from "react";
 import useForm from "react-hook-form";
 
 
-export deafult function Upload() {
+export function Upload() {
     const {upload, handleSubmit, errors} = useForm();
 
     return(
@@ -22,3 +22,4 @@ export deafult function Upload() {
         </form>
     );
 }
+export default Upload;
