@@ -5,7 +5,7 @@ import auth from '../services/auth';
 
 const classes = "btn btn-primary";
 
-const SignupButton = withRouter(({ history }) => {
+export const SignupButton = withRouter(({ history }) => {
   if(!auth.isAuthenticated) {
     return <Link className={classes} to="/sign-up">Sign Up</Link>;
   }

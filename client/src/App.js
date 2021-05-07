@@ -15,6 +15,9 @@ import { Button } from "./components/Button";
 import { SearchBar } from "./components/SearchBar";
 import { Profile } from "./components/Profile";
 import { Book } from "./components/Book";
+import { SignupButton } from "./components/SignupButton";
+import { AuthButton } from "./components/AuthButton";
+
 
 
 
