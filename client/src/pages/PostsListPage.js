@@ -3,7 +3,7 @@ import Post from '../components/Post';
 import Loading from '../components/Loading';
 import AuthButton from '../components/AuthButton';
 import SignupButton from '../components/SignupButton';
-
+import "./signuppage.css";
 
 class PostsListPage extends React.Component {
   state = {
@@ -29,15 +29,25 @@ class PostsListPage extends React.Component {
     }
 
     return (
+      // <body>
       <div className="container-fluid text-center">
         <div className="row justify-content-center">
           { this.state.posts }
         </div>
-      <div>Welcome to CUNYLib</div>
-        <AuthButton>Log In</AuthButton>
-        <SignupButton>Sign Up</SignupButton>
+      <div className="center">
+        <br></br>
+        <h2>Welcome to CUNYLib</h2>
+        <br></br>
+          <AuthButton>Log In</AuthButton>
+          <span></span>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <SignupButton>Sign Up</SignupButton>
+          <br></br>
+          <br></br>
+      </div>
+     
     </div>
-    
+    // </body>
     );
   }
 }

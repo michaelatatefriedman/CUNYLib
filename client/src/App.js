@@ -11,14 +11,18 @@ import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
+import LoginPage from './pages/LoginPage';
 import Upload from './pages/Upload';
-
+import SearchPage from './pages/SearchPage';
 import { Button } from "./components/Button";
 import { SearchBar } from "./components/SearchBar";
 import { Profile } from "./components/Profile";
 import { Book } from "./components/Book";
 import { SignupButton } from "./components/SignupButton";
 import { AuthButton } from "./components/AuthButton";
+import { Post } from "./components/Post";
+
+
 
 
 
@@ -59,6 +63,7 @@ function Navigation(props) {
         </li>        
       </ul>
       <SignupButton />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <AuthButton /> 
 
     </nav>
@@ -71,7 +76,7 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
-          <Profile name="Michaela Friedman" email="123@123.com" school="QC"/>
+          {/* <Profile name="Michaela Friedman" email="123@123.com" school="QC"/>
           <br></br>
           <br></br>
           <Book bookname="Michaela" email="123@123.com" school="QC" author="ME" isbn="12345678910"/>
@@ -84,16 +89,19 @@ class App extends React.Component {
         type="button"
         buttonStyle="btn--primary--solid"
         buttonSize="btn--medium">Search
-        </Button>
+        </Button> */}
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
                 <Route path="/sign-up" component={SignUpPage} />
+                <Route path="/login" component={LoginPage} />
                 <Route path="/upload" component={Upload} />
                 <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/" component={PostsListPage} />
+                <Route path="/search" component={SearchPage} />
+
               </Switch>
             </div>
           </div>
