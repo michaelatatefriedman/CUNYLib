@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     isbn: {
+      unique: true,
       type: DataTypes.BIGINT,
       validate: {
         len: [10, 13],
