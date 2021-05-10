@@ -27,8 +27,16 @@ router.get('/available_books/:id', (req,res) => {
 
 //{where: ["title like ?", '%' + x + '%']}
 
-router.get('/all', (req,res) => {
+/*router.get('/all', (req,res) => {
   User_book.findAll({attributes: ['id','LenderId','BorrowerId','BookId','owner_comment']}).then(val => res.json(val));
+});*/
+
+router.get('/all', (req, res)=>{
+  db.sequelize.query('SELECT ub.id, ub.owner_comment, u.email, u.school, b.title AS bookname, b.author, b.isbn  from user_books AS ub    LEFT OUTER JOIN users as u      ON ub."LenderId" = u.id      LEFT OUTER JOIN books as b       ON b.id = ub."BookId" ',
+  {
+      type: db.sequelize.QueryTypes.SELECT
+  })
+.then(val => res.json(val));
 });
 
 router.get('/:id', (req,res) => {
@@ -49,7 +57,7 @@ router.get('/:id', (req,res) => {
 //return similar books that are availble
 router.get('/similar_books/:bookname', (req, res)=>{
   const {bookname} = req.params;
-  db.sequelize.query('SELECT ub.id, u.email, u.school, b.title, b.author  from user_books AS ub    LEFT OUTER JOIN users as u      ON ub."LenderId" = u.id      LEFT OUTER JOIN books as b       ON b.id = ub."BookId" WHERE "LenderId" = "BorrowerId" AND b.title LIKE :book',
+  db.sequelize.query('SELECT ub.id, u.email, u.school, b.title AS bookname, b.author, b.isbn  from user_books AS ub    LEFT OUTER JOIN users as u      ON ub."LenderId" = u.id      LEFT OUTER JOIN books as b       ON b.id = ub."BookId" WHERE "LenderId" = "BorrowerId" AND UPPER(b.title) LIKE :book',
   {
       replacements: {book: '%'+bookname+'%'},
       type: db.sequelize.QueryTypes.SELECT

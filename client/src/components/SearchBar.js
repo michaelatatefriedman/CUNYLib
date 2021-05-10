@@ -1,14 +1,12 @@
 import React from 'react';
 
-export const SearchBar = ({keyword,setKeyword}) => {
+export const SearchBar = (props) => {
   const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
   return (
-    <input 
+    <input type = 'search'
      style={BarStyling}
-     key="random1"
-     value={keyword}
-     placeholder={"Search for textbooks"}
-     onChange={(e) => setKeyword(e.target.value)}
+     placeholder={props.placeholder}
+     onChange={props.handleChange}
     />
   );
 }
