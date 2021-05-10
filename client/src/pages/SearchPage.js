@@ -26,7 +26,7 @@ class SearchPage extends React.Component {
 
 
   searchBook() {
-    fetch("/api/user-book/similar_books/"+this.state.query_book.toUpperCase())
+    fetch("/api/user-book/similar_available_books/"+this.state.query_book.toUpperCase())
       .then(res => res.json())
       .then(books => {
         this.setState({
@@ -72,65 +72,6 @@ class SearchPage extends React.Component {
     
     );
   }
-    /*render() {
-    
-        return (
-          <div className="col-10 col-md-8 col-lg-7">
-            <div className="input-group">
-              <input 
-                type="text" 
-                placeholder="Search a textbook here..." 
-                className="form-control mr-3 rounded"
-              />
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Search By...
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Name</a>
-                  <a class="dropdown-item" href="#">Author</a>
-                  <a class="dropdown-item" href="#">ISBN</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      }*/
-    }
-
-    //Will add a list generated of react components for when searched.
-    /**
-     *  
-
-  componentDidMount() {
-    fetch("/api/posts")
-      .then(res => res.json())
-      .then(posts => {
-        this.setState({
-          loading: false,
-          posts: posts.map((p,ii) => <Post {...p} key={ii} />),
-        });
-      })
-      .catch(err => console.log("API ERROR: ", err));
-  }
-
-  render() {
-    if(this.state.loading) {
-      return <Loading />;
-    }
-
-    return (
-      <div className="container-fluid text-center">
-        <div className="row justify-content-center">
-          { this.state.posts }
-        </div>
-      <div>Welcome to CUNYLib</div>
-        <AuthButton>Log In</AuthButton>
-        <SignupButton>Sign Up</SignupButton>
-    </div>
-    
-    );
-  }
-     */
+}
 
 export default SearchPage;
