@@ -54,8 +54,19 @@ router.get('/:id', (req,res) => {
 
 //NEW
 
-//return similar books that are availble
+//return similar books
 router.get('/similar_books/:bookname', (req, res)=>{
+  const {bookname} = req.params;
+  db.sequelize.query('SELECT ub.id, b.title AS bookname, b.author, b.isbn  from user_books AS ub     LEFT OUTER JOIN books as b       ON b.id = ub."BookId" WHERE UPPER(b.title) LIKE :book',
+  {
+      replacements: {book: '%'+bookname+'%'},
+      type: db.sequelize.QueryTypes.SELECT
+  })
+.then(val => res.json(val));
+});
+
+//return similar books that are availble
+router.get('/similar_available_books/:bookname', (req, res)=>{
   const {bookname} = req.params;
   db.sequelize.query('SELECT ub.id, u.email, u.school, b.title AS bookname, b.author, b.isbn  from user_books AS ub    LEFT OUTER JOIN users as u      ON ub."LenderId" = u.id      LEFT OUTER JOIN books as b       ON b.id = ub."BookId" WHERE "LenderId" = "BorrowerId" AND UPPER(b.title) LIKE :book',
   {
