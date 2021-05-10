@@ -25,18 +25,18 @@ export function Upload() {
                 <label for="author">Author:</label><br></br>
             </div>
             <br></br>
-            <div className="txt_field">
+            {/* <div className="txt_field">
                 <input type="text" name="publisher" ref={upload}/>
                 <span></span>
                 <label for="publisher">Publisher:</label><br></br>
             </div>
-            <br></br>
-            <div className="txt_field">
+            <br></br> */}
+            {/* <div className="txt_field">
                 <input type="text" name="language" ref={upload}/>
                 <span></span>
                 <label for="language">Language:</label><br></br>
             </div>
-            <br></br>
+            <br></br> */}
             <div className="txt_field">
                 <input type="text" name="isbn" ref={upload}/>
                 <span></span>
