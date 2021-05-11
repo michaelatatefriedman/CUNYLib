@@ -4,6 +4,21 @@ import useForm from "react-hook-form";
 
 export function Upload() {
     const {upload, handleSubmit, errors} = useForm();
+    class bookForm extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {value: ''};
+          this.handleChange = this.handleChange.bind(this);
+          this.handleSubmit = this.handleSubmit.bind(this);
+        }
+      
+        handleChange(event) {    this.setState({value: event.target.value});  }
+        handleSubmit(event) {
+          alert('A book was uploaded: ' + this.state.value);
+          event.preventDefault();
+        }
+      
+        render() {
 
     return(
         <form onSubmit={handleSubmit}>
@@ -21,5 +36,8 @@ export function Upload() {
             <input type="submit" value="Upload"/>
         </form>
     );
+        }
+    }
+            
 }
 export default Upload;
