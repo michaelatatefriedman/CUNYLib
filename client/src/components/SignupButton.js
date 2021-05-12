@@ -1,13 +1,15 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-
 import auth from '../services/auth';
+import './profile.css';
 
 const classes = "btn btn-primary";
 
 export const SignupButton = withRouter(({ history }) => {
   if(!auth.isAuthenticated) {
-    return <Link className={classes} to="/sign-up">Sign Up</Link>;
+    return <Link to ="/sign-up"> 
+    <button className="button" to="/sign-up" >Sign Up</button>
+                </Link>;
   }
   return (
     <div>

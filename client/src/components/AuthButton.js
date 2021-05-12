@@ -1,13 +1,15 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-
+import './profile.css';
 import auth from '../services/auth';
 
-const classes = "btn btn-primary";
+// const classes = "btn btn-primary";
 
 export const AuthButton = withRouter(({ history }) => {
   if(!auth.isAuthenticated) {
-    return <Link className={classes} to="/login">Login</Link>;
+    return <Link to="/login">
+              <button className="button" to="/login">Login</button>
+          </Link>;
   }
 
   const logout = () => {
@@ -17,7 +19,7 @@ export const AuthButton = withRouter(({ history }) => {
   return (
     <div>
       Welcome!
-      <button className={classes} onClick={logout}>Logout</button>
+      <button className="button" onClick={logout}>Logout</button>
     </div>
   );
 });
