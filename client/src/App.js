@@ -52,19 +52,20 @@ function Navigation(props) {
             Home
           </NavLink>
         </li> */}
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/upload">
-            Upload
-          </NavLink>
-        </li>
-        <li className="nav-item">
+          <li className="nav-item">
           <NavLink className="nav-link" exact to="/about-us">
             About Us
           </NavLink>
         </li>
         <li className="nav-item">
         <NavLink className='nav-link' exact to="/profile">Profile</NavLink>
-        </li>            
+        </li> 
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/upload">
+            Upload
+          </NavLink>
+        </li>
+           
         <li classname="nav-item">
           <NavLink className="nav-link" exact to="/search">Search A Book</NavLink>
         </li>    
