@@ -8,13 +8,14 @@ import {
 } from 'react-router-dom';
 import { Scrollbars } from 'react-custom-scrollbars';
 import PrivateRoute from './components/PrivateRoute';
-import PostsListPage from './pages/PostsListPage';
+import HomePage from './pages/HomePage';
 import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
-import LoginPage from './pages/LoginPage';
 import Upload from './pages/Upload';
+import ProfilePage from './pages/ProfilePage';
+import LoginPage from './pages/LoginPage';
 import SearchPage from './pages/SearchPage'
 
 import { Button } from "./components/Button";
@@ -61,14 +62,13 @@ function Navigation(props) {
             About Us
           </NavLink>
         </li>
-        <li classname="nav-item">
-          <NavLink className="nav-link" exact to="/sign-up">Sign Up</NavLink>
-        </li>      
+        <li className="nav-item">
+        <NavLink className='nav-link' exact to="/profile">Profile</NavLink>
+        </li>            
         <li classname="nav-item">
           <NavLink className="nav-link" exact to="/search">Search A Book</NavLink>
         </li>    
       </ul>
-      <SignupButton />
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <AuthButton /> 
 
@@ -82,17 +82,17 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
-          <Scrollbars style={{ width: '100%', height: 500}}>
+          <Scrollbars style={{ width: '100%', height: 500}}>  
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
-                <PrivateRoute path = '/search' component = {SearchPage}/>
+                <PrivateRoute path="/profile" component={ProfilePage}/>
                 <Route path="/sign-up" component={SignUpPage} />
                 <Route path="/login" component={LoginPage} />
                 <PrivateRoute path="/upload" component={Upload} />
                 <Route path="/about-us" component={AboutUsPage} />
-                <Route path="/" component={PostsListPage} />
                 <PrivateRoute path="/search" component={SearchPage} />
+                <Route path="/" component={HomePage} />
 
               </Switch>
             </div>
