@@ -12,6 +12,8 @@ import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
 import Upload from './pages/Upload';
+import ProfilePage from './pages/ProfilePage';
+import LoginPage from './pages/LoginPage';
 
 import { Button } from "./components/Button";
 import { SearchBar } from "./components/SearchBar";
@@ -54,9 +56,12 @@ function Navigation(props) {
             About Us
           </NavLink>
         </li>
-        <li classname="nav-item">
+        <li className="nav-item">
           <NavLink className="nav-link" exact to="/sign-up">Sign Up</NavLink>
-        </li>        
+        </li> 
+        <li className="nav-item">
+        <NavLink className='nav-link' exact to="/profile">Profile</NavLink>
+        </li>       
       </ul>
       <SignupButton />
       <AuthButton /> 
@@ -71,24 +76,26 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
-          <Profile name="Michaela Friedman" email="123@123.com" school="QC"/>
+          {/* <Profile name="Michaela Friedman" email="123@123.com" school="QC"/>
           <br></br>
           <br></br>
           <Book bookname="Michaela" email="123@123.com" school="QC" author="ME" isbn="12345678910"/>
           <br></br>
-          <br></br>
-          <SearchBar />
+          <br></br> */}
+          {/* <SearchBar />
           <Button onClick={() => {
           console.log("You Clicked on Me!");
         }}
         type="button"
         buttonStyle="btn--primary--solid"
         buttonSize="btn--medium">Search
-        </Button>
+        </Button> */}
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
+                <Route path="/profile" component={ProfilePage}/>
                 <Route path="/sign-up" component={SignUpPage} />
+                <Route path="/login" component={LoginPage} />
                 <Route path="/upload" component={Upload} />
                 <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />

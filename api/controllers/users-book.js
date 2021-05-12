@@ -61,7 +61,7 @@ router.get('/similar_books/:bookname', (req, res)=>{
 
 //return all books available from user to lend
 router.post('/my_vailable_books', (req, res)=>{
-  db.sequelize.query('SELECT ub.id, b.title, b.author  from user_books AS ub    LEFT OUTER JOIN users as u      ON ub."LenderId" = u.id      LEFT OUTER JOIN books as b       ON b.id = ub."BookId" WHERE ub."LenderId" = ub."BorrowerId" AND ub."LenderId" = :user_id ',
+  db.sequelize.query('SELECT ub.id, b.title, b.author, ub."BookId"  from user_books AS ub    LEFT OUTER JOIN users as u      ON ub."LenderId" = u.id      LEFT OUTER JOIN books as b       ON b.id = ub."BookId" WHERE ub."LenderId" = ub."BorrowerId" AND ub."LenderId" = :user_id ',
   {
       replacements: {user_id: req.body.userid},
       type: db.sequelize.QueryTypes.SELECT
@@ -84,7 +84,7 @@ router.post('/my_borrowing', (req, res)=>{
 //return all books currently lending out
 
 router.post('/my_lending', (req, res)=>{
-  db.sequelize.query('SELECT ub.id AS borrower_id, u2.email AS borrower_email, u2.school, b.title, b.author  from user_books AS ub    LEFT OUTER JOIN users as u      ON ub."LenderId" = u.id   LEFT OUTER JOIN users as u2      ON ub."BorrowerId" = u2.id   LEFT OUTER JOIN books as b       ON b.id = ub."BookId" WHERE ub."LenderId" <> ub."BorrowerId" AND ub."LenderId" = :user_id ',
+  db.sequelize.query('SELECT ub.id AS borrower_id, u2.email AS borrower_email, u2.school, b.title, b.author, ub."BookId"  from user_books AS ub    LEFT OUTER JOIN users as u      ON ub."LenderId" = u.id   LEFT OUTER JOIN users as u2      ON ub."BorrowerId" = u2.id   LEFT OUTER JOIN books as b       ON b.id = ub."BookId" WHERE ub."LenderId" <> ub."BorrowerId" AND ub."LenderId" = :user_id ',
   {
       replacements: {user_id: req.body.userid},
       type: db.sequelize.QueryTypes.SELECT
