@@ -6,6 +6,8 @@ import {
   Link,
   NavLink
 } from 'react-router-dom';
+import { Scrollbars } from 'react-custom-scrollbars';
+import PrivateRoute from './components/PrivateRoute';
 import PostsListPage from './pages/PostsListPage';
 import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
@@ -80,23 +82,26 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
+          <Scrollbars style={{ width: '100%', height: 500}}>
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
-                <Route path = '/search' component = {SearchPage}/>
+                <PrivateRoute path = '/search' component = {SearchPage}/>
                 <Route path="/sign-up" component={SignUpPage} />
                 <Route path="/login" component={LoginPage} />
-                <Route path="/upload" component={Upload} />
-                <Route path="/posts/new" component={PostFormPage} />
-                <Route path="/posts/:id" component={ShowPostPage} />
+                <PrivateRoute path="/upload" component={Upload} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/" component={PostsListPage} />
-                <Route path="/search" component={SearchPage} />
+                <PrivateRoute path="/search" component={SearchPage} />
 
               </Switch>
             </div>
           </div>
+
+            
+          </Scrollbars>
         </Router>
+        
     );
   }
 }
