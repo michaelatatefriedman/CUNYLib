@@ -11,6 +11,7 @@ import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
+import LoginPage from './pages/LoginPage';
 import Upload from './pages/Upload';
 import SearchPage from './pages/SearchPage'
 
@@ -20,6 +21,9 @@ import { Profile } from "./components/Profile";
 import { Book } from "./components/Book";
 import { SignupButton } from "./components/SignupButton";
 import { AuthButton } from "./components/AuthButton";
+import { Post } from "./components/Post";
+
+
 
 
 
@@ -40,11 +44,11 @@ function Navigation(props) {
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
       <Link className="navbar-brand" to="/">CUNYLib</Link>
       <ul className="navbar-nav mr-auto">
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <NavLink className="nav-link" exact to="">
             Home
           </NavLink>
-        </li>
+        </li> */}
         <li className="nav-item">
           <NavLink className="nav-link" exact to="/upload">
             Upload
@@ -63,6 +67,7 @@ function Navigation(props) {
         </li>    
       </ul>
       <SignupButton />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <AuthButton /> 
 
     </nav>
@@ -80,11 +85,14 @@ class App extends React.Component {
               <Switch>
                 <Route path = '/search' component = {SearchPage}/>
                 <Route path="/sign-up" component={SignUpPage} />
+                <Route path="/login" component={LoginPage} />
                 <Route path="/upload" component={Upload} />
                 <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/" component={PostsListPage} />
+                <Route path="/search" component={SearchPage} />
+
               </Switch>
             </div>
           </div>

@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Redirect } from 'react-router-dom';
 
+import "./signuppage.css";
+
 import auth from '../services/auth';
 
 class SignUpPage extends React.Component {
@@ -61,55 +63,85 @@ class SignUpPage extends React.Component {
         }
     
         return (
-          <form onSubmit={this.signup}>
-            <div className="form-row">
+          <body>
+            <div className="center">
+            <form onSubmit={this.signup}>
+
+              <h1>Sign Up</h1>
               { err }
-              <input 
-                type="text"
-                className="form-control"
-                name="firstName"
-                placeholder="First Name" 
-                required
-                value={this.state.firstName} 
-                onChange={this.fieldChanged('firstName')} />
-            <input 
-                type="text"
-                className="form-control"
-                name="lastName"
-                placeholder="Last Name" 
-                required
-                value={this.state.lastName} 
-                onChange={this.fieldChanged('lastName')} />  
-              <input 
-                type="email"
-                className="form-control"
-                name="email"
-                placeholder="Email" 
-                required
-                value={this.state.email} 
-                onChange={this.fieldChanged('email')} />
-              <input 
-                type="password"
-                className="form-control"
-                name="password"
-                placeholder="Password" 
-                required
-                value={this.state.password} 
-                onChange={this.fieldChanged('password')} />
-            <input 
-                type="text"
-                className="form-control"
-                name="school"
-                placeholder="CUNY school" 
-                required
-                value={this.state.school} 
-                onChange={this.fieldChanged('school')} />
-              <button 
-                type="submit"
-                className="btn btn-primary ml-auto"
-              >Sign Up</button>
+              <br></br>
+              <div className="txt_field">
+                <input 
+                  type="text"
+                  className="txt_field"
+                  name="firstName"
+                  // placeholder="First Name" 
+                  required
+                  value={this.state.firstName} 
+                  onChange={this.fieldChanged('firstName')} />
+                  <span></span>
+                  <label>First Name </label>
+              </div>
+              <br></br>
+              <div className="txt_field">
+                  <input 
+                    type="text"
+                    name="lastName"
+                    // placeholder="Last Name" 
+                    required
+                    value={this.state.lastName} 
+                    onChange={this.fieldChanged('lastName')} />  
+                    <span></span>
+                    <label>Last Name </label>
+              </div>
+              <br></br>
+              <div className="txt_field">
+                  <input 
+                    type="email"
+                    className="txt_field"
+                    name="email"
+                    // placeholder="Email" 
+                    required
+                    value={this.state.email} 
+                    onChange={this.fieldChanged('email')} />
+                    <span></span>
+                    <label>Email Address</label>
+              </div>
+           <br></br>
+              <div className="txt_field">
+                  <input 
+                    type="password"
+                    className="txt_field"
+                    name="password"
+                    // placeholder="Password" 
+                    required
+                    value={this.state.password} 
+                    onChange={this.fieldChanged('password')} />
+                    {/* <div class="pass">Forgot Password?</div> */}
+                    <span></span>
+                    <label>Password</label>
+              </div>
+              <br></br>
+              <div className="txt_field">
+                    <input 
+                    type="text"
+                    className="txt_field"
+                    name="school"
+                    // placeholder="CUNY school" 
+                    required
+                    value={this.state.school} 
+                    onChange={this.fieldChanged('school')} />
+                    <span></span>
+                    <label>CUNY School</label>
+              </div>
+              <br></br>
+                <input 
+                    type="submit"
+                  value="Sign Up"></input>
+                  <br></br>
+              </form>
             </div>
-          </form>
+          </body>
         );
       }
 }

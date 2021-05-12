@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-
+import "./signuppage.css";
 import auth from '../services/auth';
 
 class LoginPage extends React.Component {
@@ -44,29 +44,46 @@ class LoginPage extends React.Component {
     }
 
     return (
-      <form onSubmit={this.login}>
-        <div className="form-row">
-          { err }
-          <input 
-            type="email"
-            className="form-control"
-            name="email"
-            placeholder="Email" 
-            value={this.state.email} 
-            onChange={this.fieldChanged('email')} />
-          <input 
-            type="password"
-            className="form-control"
-            name="password"
-            placeholder="Password" 
-            value={this.state.password} 
-            onChange={this.fieldChanged('password')} />
-          <button 
-            type="submit"
-            className="btn btn-primary ml-auto"
-          >Login</button>
-        </div>
-      </form>
+      // <form onSubmit={this.login}>
+        <div className="center">
+          <form onSubmit={this.login}>
+            <h1>Login</h1>
+            { err }
+            <br></br>
+            <div className="txt_field">
+                  <input 
+                    type="email"
+                    className="txt_field"
+                    name="email"
+                    // placeholder="Email" 
+                    required
+                    value={this.state.email} 
+                    onChange={this.fieldChanged('email')} />
+                    <span></span>
+                    <label>Email Address</label>
+            </div>
+
+          <br></br>
+          <div className="txt_field">
+                  <input 
+                    type="password"
+                    className="txt_field"
+                    name="password"
+                    // placeholder="Password" 
+                    required
+                    value={this.state.password} 
+                    onChange={this.fieldChanged('password')} />
+                    {/* <div class="pass">Forgot Password?</div> */}
+                    <span></span>
+                    <label>Password</label>
+              </div>
+            <br></br>
+            <input 
+                      type="submit"
+                    value="Login"></input>
+                    <br></br>
+        </form>
+      </div>
     );
   }
 }
