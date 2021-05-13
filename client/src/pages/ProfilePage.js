@@ -98,7 +98,19 @@ class ProfilePage extends React.Component {
    <div>
       {this.state.book.map((item) => 
       <div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         {headlines[count++]}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <br></br>
         {item.map((book => 
           <div className="container-fluid text-center">
