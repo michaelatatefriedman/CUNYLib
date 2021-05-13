@@ -17,6 +17,7 @@ import Upload from './pages/Upload';
 import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/LoginPage';
 import SearchPage from './pages/SearchPage'
+import AllBooksPage from './pages/AllBooksPage'
 
 import { Button } from "./components/Button";
 import { SearchBar } from "./components/SearchBar";
@@ -61,7 +62,7 @@ function Navigation(props) {
         <NavLink className='nav-link' exact to="/profile">Profile</NavLink>
         </li> 
         <li className="nav-item">
-          <NavLink className="nav-link" exact to="/upload">
+          <NavLink className="nav-link" exact to="/allbooks">
             Upload
           </NavLink>
         </li>
@@ -90,6 +91,7 @@ class App extends React.Component {
                 <PrivateRoute path="/profile" component={ProfilePage}/>
                 <Route path="/sign-up" component={SignUpPage} />
                 <Route path="/login" component={LoginPage} />
+                <PrivateRoute path="/allbooks" component={AllBooksPage} />
                 <PrivateRoute path="/upload" component={Upload} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <PrivateRoute path="/search" component={SearchPage} />
