@@ -22,11 +22,12 @@ export function Book(props) {
                 
             </div> 
             <div className="book-lower-container">
-                <h4>Book Name: { props.bookname } </h4>
+                <h4>{ props.bookname } </h4>
                 <p>ISBN: { props.isbn } </p>
                 <p>Author: { props.author } </p>
                 <p>Email of Owner: { props.email } </p>
                 <p>CUNY School: { props.school } </p>
+                <br></br>
                 <Button onClick={props.onClick}>Borrow</Button>
             </div>
         </div>

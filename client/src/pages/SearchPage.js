@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Book from '../components/Book';
+import SearchBook from '../components/SearchBook';
 import Loading from '../components/Loading';
 import SearchBar from '../components/SearchBar';
 import { Button } from "../components/Button";
@@ -18,7 +18,7 @@ class SearchPage extends React.Component {
       .then(books => {
         this.setState({
           loading: false,
-          books: books.map((book,ii) => <Book {...book} key={ii} />),
+          books: books.map((book,ii) => <SearchBook {...book} key={ii} />),
         });
       })
       .catch(err => console.log("API ERROR: ", err));
@@ -31,7 +31,7 @@ class SearchPage extends React.Component {
       .then(books => {
         this.setState({
           loading: false,
-          books: books.map((book,ii) => <Book {...book} key={ii} />),
+          books: books.map((book,ii) => <SearchBook {...book} key={ii} />),
         });
       })
       .catch(err => console.log("API ERROR: ", err));

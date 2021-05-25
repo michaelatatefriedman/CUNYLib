@@ -1,10 +1,9 @@
 import React ,{ useState } from 'react';
 import './book.css';
-import Button from './Button'
 
 import auth from '../services/auth'
 
-export function GeneralBook(props) {
+export function SearchBook(props) {
 
     // const[name,setName] = useState('Your Name');
     // const[email,setEmail] = useState('Your Email');
@@ -22,14 +21,14 @@ export function GeneralBook(props) {
                 
             </div> 
             <div className="book-lower-container">
-                <h4>{ props.title } </h4>
+                <h4>{ props.bookname } </h4>
                 <p>ISBN: { props.isbn } </p>
                 <p>Author: { props.author } </p>
-                <br></br>
-                <Button onClick={props.onClick}>Add to my available books</Button>
+                <p>Email of Owner: { props.email } </p>
+                <p>CUNY School: { props.school } </p>
             </div>
         </div>
     )
 };
 
-export default GeneralBook;
+export default SearchBook;
