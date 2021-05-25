@@ -9,8 +9,8 @@ import {
 import { Scrollbars } from 'react-custom-scrollbars';
 import PrivateRoute from './components/PrivateRoute';
 import HomePage from './pages/HomePage';
-// import PostFormPage from './pages/PostFormPage';
-// import ShowPostPage from './pages/ShowPostPage';
+import PostFormPage from './pages/PostFormPage';
+import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
 import Upload from './pages/Upload';
