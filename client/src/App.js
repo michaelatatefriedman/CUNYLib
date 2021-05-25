@@ -9,8 +9,8 @@ import {
 import { Scrollbars } from 'react-custom-scrollbars';
 import PrivateRoute from './components/PrivateRoute';
 import HomePage from './pages/HomePage';
-import PostFormPage from './pages/PostFormPage';
-import ShowPostPage from './pages/ShowPostPage';
+// import PostFormPage from './pages/PostFormPage';
+// import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
 import Upload from './pages/Upload';
@@ -76,12 +76,26 @@ function Navigation(props) {
     // </nav>
      <nav id="navbar" class="navbar">
      <ul>
-       <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-       <li><a class="nav-link scrollto" href="AboutUsPage.js">About Us</a></li>
-       <li><a class="nav-link scrollto" href="#ProfilePage">Profile</a></li>
-       <li><a class="nav-link scrollto " href="#portfolio">Upload</a></li>
-       <li><a class="nav-link scrollto" href="#team">Search For a Book</a></li>
-       <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+       <li><a class="nav-link active" href="">Home</a></li>
+       <li>
+       <NavLink className="nav-link" exact to="/about-us">
+             About Us
+          </NavLink></li>
+       {/* <li>
+         <NavLink className='nav-link' exact to="/profilepage">Profile
+       </NavLink></li> */}
+       <li>
+       <NavLink className="nav-link" exact to="/profile-page">
+             Profile
+          </NavLink></li>
+
+       <li>
+         <NavLink className="nav-link" exact to="/allbooks">Upload
+         </NavLink></li>
+       <li>
+         <NavLink className="nav-link" exact to="/search">Search A Book
+         </NavLink></li>
+       {/* <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
          <ul>
            <li><a href="#">Drop Down 1</a></li>
            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -97,10 +111,13 @@ function Navigation(props) {
            <li><a href="#">Drop Down 3</a></li>
            <li><a href="#">Drop Down 4</a></li>
          </ul>
-       </li>
+       </li> */}
        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
      </ul>
      <i class="bi bi-list mobile-nav-toggle"></i>
+     {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <SignupButton /> 
+    <AuthButton /> */}
    </nav>
   );
 }
@@ -115,7 +132,7 @@ class App extends React.Component {
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
-                <PrivateRoute path="/profile" component={ProfilePage}/>
+                <PrivateRoute path="/profile-page" component={ProfilePage}/>
                 <Route path="/sign-up" component={SignUpPage} />
                 <Route path="/login" component={LoginPage} />
                 <PrivateRoute path="/allbooks" component={AllBooksPage} />

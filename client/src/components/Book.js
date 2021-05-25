@@ -1,5 +1,5 @@
 import React ,{ useState } from 'react';
-import './book.css';
+// import './book.css';
 import Button from './Button'
 
 import auth from '../services/auth'
@@ -14,22 +14,26 @@ export function Book(props) {
 
  
     return (
-        <div className="book-Card">
-            <div className = "book-upper-container">
-                <div className="book-image-container">
-                    <img src="../book.png" alt= " " height ="100px" width="100px" />
+        <div class="row portfolio-container">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                <div class="portfolio-wrap">
+                    <div class="portfolio-info">
+                        <img src="../book.png" class="img-fluid" alt="" />
+                            <h4>Book Name: { props.bookname } </h4>
+                            <p>ISBN: { props.isbn } </p>
+                            <p>Author: { props.author } </p>
+                            <p>Email of Owner: { props.email } </p>
+                            <p>CUNY School: { props.school } </p>
+                            <Button onClick={props.onClick}>Borrow</Button>
+                    </div>
+                </div> 
+                <div class="portfolio-links">
+                    {/* <img src="../book.png" alt= " " height="250px" width="250px"data-gallery="portfolioGallery" class="portfolio-lightbox" /> */}
+                    {/* <a href="../book.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a> */}
                 </div>
-                
-            </div> 
-            <div className="book-lower-container">
-                <h4>Book Name: { props.bookname } </h4>
-                <p>ISBN: { props.isbn } </p>
-                <p>Author: { props.author } </p>
-                <p>Email of Owner: { props.email } </p>
-                <p>CUNY School: { props.school } </p>
-                <Button onClick={props.onClick}>Borrow</Button>
             </div>
         </div>
+        
     )
 };
 

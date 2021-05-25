@@ -8,9 +8,9 @@
 
 .upper-container{
     height: 85px;
-    background: linear-gradient(to left, blue, #ff0291);
+    /* background: linear-gradient(to left, blue, #ff0291); */
     
-}
+ } 
 
 .image-container img{
     background: white;

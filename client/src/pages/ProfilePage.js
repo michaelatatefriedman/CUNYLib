@@ -87,9 +87,17 @@ class ProfilePage extends React.Component {
     let count = 0;
     let headlines = ["Books Available to Lend", "Books Lent Out", "Books Borrowed"];
     return (
+      <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Profile</h2>
+          {/* <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> */}
+        </div>
       <div>
-    <div><Profile name={`${auth.user.firstName} ${auth.user.lastName}`} email={auth.user.email}  school={auth.user.school} 
-    /></div>
+    <div>
+    <div class="row portfolio-container"><Profile name={`${auth.user.firstName} ${auth.user.lastName}`} email={auth.user.email}  school={auth.user.school} 
+    /></div></div>
     <br></br>
    <br></br>
    <div>
@@ -101,8 +109,8 @@ class ProfilePage extends React.Component {
         {headlines[count++]}
         <br></br>
         {item.map((book => 
-          <div className="container-fluid text-center">
-            <Book bookname={book.title} author={book.author} email={book.lender_email} school={book.school} isbn={book.BookId} onClick={() => { if(book.borrower_id == null) {book.borrower_id=auth.user.id} if (auth.user.id != book.borrower_id ) {this.setAvailable(book.borrower_id.toString())} if (auth.user.id == book.borrower_id && book.BookId != null) {{this.setBorrower(book.id.toString())}}}} />
+          <div class="row portfolio-container">            
+          <Book bookname={book.title} author={book.author} email={book.lender_email} school={book.school} isbn={book.BookId} onClick={() => { if(book.borrower_id == null) {book.borrower_id=auth.user.id} if (auth.user.id != book.borrower_id ) {this.setAvailable(book.borrower_id.toString())} if (auth.user.id == book.borrower_id && book.BookId != null) {{this.setBorrower(book.id.toString())}}}} />
             <br></br>
             <br></br>
           </div>))}
@@ -111,6 +119,8 @@ class ProfilePage extends React.Component {
       </div>
      </div>
    </div>
+   </div>
+   </section>
     );
   }
 
