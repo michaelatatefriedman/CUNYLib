@@ -1,9 +1,12 @@
 .book-Card{
     width: 300px;
-    height: 350px;
+    height: 370px;
     background: white;
     border-radius: 10px;
-    box-shadow: 0px 1px 10px 1px black;
+    box-shadow: 10px 10px 10px 10px #49b5e7;
+    margin-bottom: 50px;
+    margin-right: 10px;
+    overflow: hidden;
 }
 
 .book-upper-container{
@@ -14,9 +17,9 @@
 
 .book-image-container img{
     background: white;
-    width: 150px;
-    height: 150px;
-    padding: 5px;
+    width: 100px;
+    height: 100px;
+    /* padding: 5px; */
     border-radius: 0;
     transform: translate(70px,10px);
 }
@@ -31,6 +34,7 @@ img{
     background: white;
     text-align: center;
     font-family: "Titillium Wed", sans-serif;
+    padding-bottom: 15px;
 }
 
 .book-lower-container h1,h4,p{
@@ -44,7 +48,7 @@ img{
     font-size:1.5rem;
 }
 .book-lower-container h4{
-    color: #8e08b9;
+    color: #49b5e7;
     font-weight: 800;
     font-size:1.2rem;
 }
@@ -70,8 +74,8 @@ book-button{
 }
 
 book-button:hover{
-    background-image: linear-gradient(to left, blue, #ff0291);
-    transform: scale(1.2);
+    /* background-image: linear-gradient(to left, blue, #ff0291); */
+    transform: scale(1.0);
     border:none;
     color:white;
 }
