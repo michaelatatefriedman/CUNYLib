@@ -120,6 +120,7 @@ class ProfilePage extends React.Component {
    <br></br>
    <br></br>
    <div>
+<<<<<<< HEAD
  
           <div className="row justify-content-center">  
           Currently Lending:
@@ -144,6 +145,27 @@ class ProfilePage extends React.Component {
           <div className="row justify-content-center">      
          {this.state.availableBook} 
            
+=======
+      {this.state.book.map((item) => 
+      <div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {headlines[count++]}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        {item.map((book => 
+          <div className="container-fluid text-center">
+            <Book bookname={book.title} author={book.author} email={book.lender_email} school={book.school} isbn={book.BookId} onClick={() => { if(book.borrower_id == null) {book.borrower_id=auth.user.id} if (auth.user.id != book.borrower_id ) {this.setAvailable(book.borrower_id.toString())} if (auth.user.id == book.borrower_id && book.BookId != null) {{this.setBorrower(book.id.toString())}}}} />
+>>>>>>> 7bf9ecbf9a8ecef7a70a7042d2bfcf8dde2c2853
             <br></br>
             <br></br>
           </div>
