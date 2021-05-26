@@ -17,7 +17,7 @@ export function Book(props) {
         <div className="book-Card">
             <div className = "book-upper-container">
                 <div className="book-image-container">
-                    <img src="../book.png" alt= " " height ="100px" width="100px" />
+                    <img src="../bookimage.jpeg" alt= " " height ="100px" width="100px" />
                 </div>
                 
             </div> 

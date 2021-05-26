@@ -12,7 +12,7 @@ export function Profile(props) {
         <div className="Card">
             <div className = "upper-container">
                 <div className="image-container">
-                    <img src="../sun.png" alt= " " height ="100px" width="100px" />
+                    <img src="../profileimage.jpeg" alt= " " height ="100px" width="100px" />
                 </div>
                 
             </div> 
