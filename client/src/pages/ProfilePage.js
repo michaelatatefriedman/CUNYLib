@@ -10,64 +10,50 @@ class ProfilePage extends React.Component {
 
   state = {
     loading: true,
-    lendingBook: [],
-    borrowingBook: [],
-    availableBook: [],
+    book: [],
     notFound: false,
     json: null,
   }
 
   componentDidMount() {
     if (auth.isAuthenticated != false){
-      fetch('/api/user-book/my_vailable_books', { 
-        method: 'POST',
-        body: JSON.stringify({ userid: auth.user.id.toString() }),
-        headers: {
-          'Content-Type': 'application/json',
-        }
+    return Promise.all([fetch('/api/user-book/my_vailable_books', { 
+      method: 'POST',
+      body: JSON.stringify({ userid: auth.user.id.toString() }),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }),fetch('/api/user-book/my_lending', { 
+      method: 'POST',
+      body: JSON.stringify({ userid: auth.user.id.toString() }),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }), fetch('/api/user-book/my_borrowing', { 
+      method: 'POST',
+      body: JSON.stringify({ userid: auth.user.id.toString() }),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })])
+    .then(function (responses) {
+      return Promise.all(responses.map(function (response) {
+        return response.json();
+      }));
+    }).then((data) =>
+    this.setState({
+      book: data,
+     loading: false,
+    }))
+    .catch(function (error) {
+      console.log(error);
+    })} else {
+      this.setState({
+        book: null,
+       loading: false,
       })
-      .then(res => res.json())
-      .then(books => {
-        this.setState({
-          loading: false,
-          availableBook: books.map((book,ii) => <Book {...book} key={ii} />),
-        });
-      })
-      .catch(err => console.log("API ERROR: ", err));
-
-      fetch('/api/user-book/my_lending', { 
-        method: 'POST',
-        body: JSON.stringify({ userid: auth.user.id.toString() }),
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      })
-      .then(res => res.json())
-      .then(books => {
-        this.setState({
-          loading: false,
-          lendingBook: books.map((book,ii) => <Book {...book} key={ii} />),
-        });
-      })
-      .catch(err => console.log("API ERROR: ", err));
-
-      fetch('/api/user-book/my_borrowing', { 
-        method: 'POST',
-        body: JSON.stringify({ userid: auth.user.id.toString() }),
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      })
-      .then(res => res.json())
-      .then(books => {
-        this.setState({
-          loading: false,
-          borrowing: books.map((book,ii) => <Book {...book} key={ii} />),
-        });
-      })
-      .catch(err => console.log("API ERROR: ", err));
-    }}
-
+    };
+  }
 
   setAvailable(value) {
     fetch('/api/user-book/set_available', { 
@@ -101,56 +87,30 @@ class ProfilePage extends React.Component {
     let count = 0;
     let headlines = ["Books Available to Lend", "Books Lent Out", "Books Borrowed"];
     return (
-      <section id="portfolio" class="portfolio">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Profile</h2>
-          {/* <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> */}
-        </div>
       <div>
-    <div>
-    <div className="container-fluid text-center">
-    <div className="row justify-content-center">  
-      <Profile name={`${auth.user.firstName} ${auth.user.lastName}`} email={auth.user.email}  school={auth.user.school} 
-    /></div></div></div>
+    <div><Profile name={`${auth.user.firstName} ${auth.user.lastName}`} email={auth.user.email}  school={auth.user.school} 
+    /></div>
     <br></br>
    <br></br>
    <div>
    <br></br>
    <br></br>
    <div>
-          <div className="row justify-content-center">  
-          Currently Lending:
-          <br></br>         
-          </div>
-          <div className="row justify-content-center">  
-         {this.state.lendingBook} 
-         </div>
-         <div className="row justify-content-center">  
-         <br></br> 
-          Currently Borrowing:
-          <br></br> 
-          </div> 
-          <div className="row justify-content-center">         
-         {this.state.borrowingBook} 
-         </div>
-         <div className="row justify-content-center">  
-         <br></br> 
-          Available Books:
-          <br></br>  
-          </div>   
-          <div className="row justify-content-center">      
-         {this.state.availableBook} 
-           
+      {this.state.book.map((item) => 
+      <div>
+        {headlines[count++]}
+        <br></br>
+        {item.map((book => 
+          <div className="container-fluid text-center">
+            <Book bookname={book.title} author={book.author} email={book.lender_email} school={book.school} isbn={book.BookId} onClick={() => { if(book.borrower_id == null) {book.borrower_id=auth.user.id} if (auth.user.id != book.borrower_id ) {this.setAvailable(book.borrower_id.toString())} if (auth.user.id == book.borrower_id && book.BookId != null) {{this.setBorrower(book.id.toString())}}}} />
             <br></br>
             <br></br>
-          </div>
+          </div>))}
+      </div>)
+      }
       </div>
      </div>
    </div>
-   </div>
-   </section>
     );
   }
 
